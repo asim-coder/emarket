@@ -48,19 +48,19 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
       }
     })
 
-    .state('tab.friends', {
-      url: '/friends',
+    .state('tab.cart', {
+      url: '/cart',
       views: {
-        'tab-friends': {
-          templateUrl: 'templates/tab-friends.html',
+        'tab-cart': {
+          templateUrl: 'templates/tab-cart.html',
           controller: 'FriendsCtrl'
         }
       }
     })
-    .state('tab.friend-detail', {
-      url: '/friend/:friendId',
+    .state('tab.item-detail', {
+      url: '/cart/:itemId',
       views: {
-        'tab-friends': {
+        'tab-cart': {
           templateUrl: 'templates/friend-detail.html',
           controller: 'FriendDetailCtrl'
         }
@@ -70,7 +70,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
     .state('tab.home', {
       url: '/home',
       views: {
-        'registration': {
+        'tab-regstn': {
           templateUrl: 'templates/tab-friends.html',
           controller: 'FriendsCtrl'
         }

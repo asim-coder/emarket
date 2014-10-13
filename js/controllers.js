@@ -1,6 +1,11 @@
 angular.module('starter.controllers', [])
 
 .controller('DashCtrl', function($scope) {
+	$scope.search = function(){
+	  //window.location = "#/tab/cart";
+	   alert($scope.query);
+	   return $scope.query;
+	}
 })
 
 .controller('FriendsCtrl', function($scope, Friends) {
@@ -8,7 +13,7 @@ angular.module('starter.controllers', [])
 })
 
 .controller('FriendDetailCtrl', function($scope, $stateParams, Friends) {
-  $scope.friend = Friends.get($stateParams.friendId);
+  $scope.friend = Friends.get($stateParams.itemId);
 })
 
 .controller('AccountCtrl', function($scope) {
