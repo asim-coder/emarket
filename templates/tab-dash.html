@@ -11,8 +11,8 @@
         <input type="text" placeholder="Search for grossary, Bakery, Crockery etc" ng-model="query">
       </label>
       </div>
-      <button class="button button-royal button-full" ng-click = "search()">Search</button>
-      Full Name :{{search2()}} {{query}}
+      <a class="button button-royal button-full" href="#/tab/dash/{{query}}">Search</a>
+      Full Name :
     <div class="button-bar">
       <a class="button button-positive margined">Bakery</a>
       <a class="button button-calm margined">Grocery</a>
@@ -29,3 +29,4 @@
 	</div>
   </ion-content>
 </ion-view>
+    <!-- //window.location = "#/tab/cart"; -->

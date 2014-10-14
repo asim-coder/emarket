@@ -48,12 +48,22 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
       }
     })
 
+    .state('tab.results', {
+      url: '/dash/:query',
+      views: {
+        'tab-dash': {
+          templateUrl: 'templates/query-results.html',
+          controller: 'QueryResultsCtrl'
+        }
+      }
+    })
+
     .state('tab.cart', {
       url: '/cart',
       views: {
         'tab-cart': {
           templateUrl: 'templates/tab-cart.html',
-          controller: 'FriendsCtrl'
+          controller: 'CartCtrl'
         }
       }
     })
@@ -61,8 +71,8 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
       url: '/cart/:itemId',
       views: {
         'tab-cart': {
-          templateUrl: 'templates/friend-detail.html',
-          controller: 'FriendDetailCtrl'
+          templateUrl: 'templates/item-detail.html',
+          controller: 'ItemDetailCtrl'
         }
       }
     })

@@ -7,3 +7,9 @@
 .cart-bar {
 	color: #777;
 }
+
+.add-to-cart {
+	padding: 40px;
+	margin-right: -40px;
+	margin-top: 20px;
+}

@@ -7,20 +7,20 @@ angular.module('starter.services', [])
   // Might use a resource here that returns a JSON array
 
   // Some fake testing data
-  var friends = [
-    { id: 0, name: 'Basmati Rice' ,qty: 2, weight: '3kg', pic : 'a.png'},
-    { id: 1, name: 'Sugar' ,qty: 1, weight: '1kg', pic : 'a.png'},
-    { id: 2, name: 'Butter',qty: 10, weight: '50g', pic : 'a.png' },
-    { id: 3, name: 'Oil',qty: 2, weight: '1l' , pic : 'a.png'}
+  var items = [
+    { id: 0, name: 'Basmati Rice' ,price: 2, weight: '3kg', pic : 'a.png', desc : 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam, porro.'},
+    { id: 1, name: 'Sugar' ,price: 1, weight: '1kg', pic : 'a.png', desc : 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam, porro.'},
+    { id: 2, name: 'Butter',price: 10, weight: '50g', pic : 'a.png' , desc : 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam, porro.'},
+    { id: 3, name: 'Oil',price: 2, weight: '1l' , pic : 'a.png', desc : 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam, porro.'}
   ];
 
   return {
     all: function() {
-      return friends;
+      return items;
     },
-    get: function(friendId) {
+    get: function(itemId) {
       // Simple index lookup
-      return friends[friendId];
+      return items[itemId];
     }
   }
 });
