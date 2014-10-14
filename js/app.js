@@ -90,7 +90,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
     .state('tab.home', {
       url: '/home',
       views: {
-        'tab-regstn': {
+        'tab-account': {
           templateUrl: 'templates/tab-friends.html',
           controller: 'FriendsCtrl'
         }

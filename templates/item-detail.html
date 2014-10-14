@@ -15,8 +15,17 @@
 	  		<i class = "ion-ios7-plus-empty item-detail" ng-click="qty = qty + 1" ng-init="qty=1"></i>
 	  	</i>
   	</div>
-  	<button class="button button-block button-positive">
+  	<button class="button button-block button-positive" ng-show = "carted == 0" ng-click = "carted = 1" ng-init = "carted = 0">
   	  Add this item to cart
   	</button>
+  	<button class="button button-block button-assertive"  ng-show = "carted == 1" ng-click = "carted = 0">
+  	  Remove this item from cart
+  	</button>
+  	<a class="button button-block button-dark" ng-show = "carted == 1" href = "#/tab/cart">
+  	  Goto cart and checkout
+  	</a>
+  	<a class="button button-block button-stable" ng-show = "carted == 1" href = "#/tab/dash">
+  	  Continue Shopping
+  	</a>
   </ion-content>
 </ion-view>
