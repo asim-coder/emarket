@@ -20,5 +20,9 @@ angular.module('starter.controllers', [])
   $scope.item = Friends.get($stateParams.itemId);
 })
 
+.controller('CartDetailCtrl', function($scope, $stateParams, Friends) {
+  $scope.item = Friends.get($stateParams.itemId);
+})
+
 .controller('AccountCtrl', function($scope) {
 });

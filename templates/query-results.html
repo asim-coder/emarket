@@ -1,0 +1,40 @@
+<ion-view title="e - Market">
+  <ion-content class="padding">
+    <div class="button-bar">
+    <a class="button button-icon icon ion-ios7-heart-outline cart-bar"> Wishlist</a>
+    <a class="button button-icon icon ion-information-circled cart-bar"> Notifications</a>
+    <a class="button button-icon icon ion-ios7-cart-outline cart-bar"> My Cart</a>
+    </div>
+    <div class="list list-inset">
+      <label class="item item-input">
+        <i class="icon ion-search placeholder-icon"></i>
+        <input type="text" placeholder="Search for grossary, Bakery, Crockery etc" ng-model="query">
+      </label>
+      </div>
+      <button class="button button-royal button-full" href="#/tab/dash/{{query}}">Search</button>
+      <!-- <p ng-class="balanced" ng-click = "balanced = 'balanced'">Full Name :</p> -->
+    <div class="button-bar">
+      <a class="button button-positive margined">Bakery</a>
+      <a class="button button-calm margined">Grocery</a>
+      <a class="button button-energized margined">Crockery</a>
+      <a class="button button-balanced margined">Hot Deals</a>
+        <select ng-model="orderProp" class="button button-assertive margined">
+          <option value="name">Popular</option>
+          <option value="age">Newest</option>
+        </select>
+    </div><br>
+    <div class="list">
+      <ion-list>
+        <ion-item ng-repeat="item in items | filter:query | orderBy:orderProp" type="item-text-wrap" class="item item-thumbnail-left item-button-right" href="#/tab/item/{{item.id}}">
+          <img src="img/{{item.pic}}">
+          <h1>{{item.name}}</h1>
+          <p>{{item.desc}}</p>
+          <h2>Rs. {{item.price}}</h2>
+          <!-- <button class="button button-stable add-to-cart" ng-class = "checkclass" ng-click = "checkclass = 'balanced'">
+            <i class="icon ion-ios7-plus">Quick Buy</i>
+          </button> -->
+        </ion-item>
+      </ion-list>
+    </div>
+  </ion-content>
+</ion-view>
