@@ -26,7 +26,7 @@
     <div class="list">
       <ion-list>
         <ion-item ng-repeat="item in items | filter:query | orderBy:orderProp" type="item-text-wrap" class="item item-thumbnail-left item-button-right" href="#/tab/item/{{item.id}}">
-          <img src="img/{{item.pic}}">
+          <img ng-src="img/{{item.pic}}">
           <h1>{{item.name}}</h1>
           <p>{{item.desc}}</p>
           <h2>Rs. {{item.price}}</h2>

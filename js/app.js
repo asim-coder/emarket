@@ -91,8 +91,8 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
       url: '/home',
       views: {
         'tab-account': {
-          templateUrl: 'templates/tab-friends.html',
-          controller: 'FriendsCtrl'
+          templateUrl: 'templates/tab-account.html',
+          controller: 'CartCtrl'
         }
       }
     })
