@@ -22,14 +22,21 @@
           <option value="name">Popular</option>
           <option value="age">Newest</option>
         </select>
-    </div><br>
+    </div><br>{{items[0].name}}{{abc}}
+    <a href="#/tab/cart" title="go to shopping cart" ng-hide="cart.getTotalCount() < 1">
+        <i class="icon-shopping-cart" />
+        <b>{{cart.getTotalCount()}}</b> items, <b>{{cart.getTotalPrice() | currency : "&#8377;"}}</b>
+    </a>
     <div class="list">
       <ion-list>
         <ion-item ng-repeat="item in items | filter:query | orderBy:orderProp" type="item-text-wrap" class="item item-thumbnail-left item-button-right" href="#/tab/item/{{item.id}}">
           <img ng-src="img/{{item.pic}}">
           <h1>{{item.name}}</h1>
           <p>{{item.desc}}</p>
-          <h2>Rs. {{item.price}}</h2>
+          <h2> {{item.price | currency:"&#8377;"}}</h2>
+          <a href="" ng-click="cart.addItem(item.id, item.name, item.price, 1)">
+              add to cart
+          </a>
           <!-- <button class="button button-stable add-to-cart" ng-class = "checkclass" ng-click = "checkclass = 'balanced'">
             <i class="icon ion-ios7-plus">Quick Buy</i>
           </button> -->
