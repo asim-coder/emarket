@@ -29,8 +29,8 @@ shoppingCart.prototype.loadItems = function () {
             var items = JSON.parse(items);
             for (var i = 0; i < items.length; i++) {
                 var item = items[i];
-                if (item.sku != null && item.name != null && item.price != null && item.quantity != null) {
-                    item = new cartItem(item.sku, item.name, item.price, item.quantity);
+                if (item.id != null && item.name != null && item.price != null && item.quantity != null) {
+                    item = new cartItem(item.id, item.name, item.price, item.quantity);
                     this.items.push(item);
                 }
             }
@@ -79,11 +79,11 @@ shoppingCart.prototype.addItem = function (id, name, price, quantity) {
 }
 
 // get the total price for all items currently in the cart
-shoppingCart.prototype.getTotalPrice = function (sku) {
+shoppingCart.prototype.getTotalPrice = function (id) {
     var total = 0;
     for (var i = 0; i < this.items.length; i++) {
         var item = this.items[i];
-        if (sku == null || item.sku == sku) {
+        if (id == null || item.id == id) {
             total += this.toNumber(item.quantity * item.price);
         }
     }
@@ -172,7 +172,7 @@ shoppingCart.prototype.checkoutPayPal = function (parms, clearCart) {
     for (var i = 0; i < this.items.length; i++) {
         var item = this.items[i];
         var ctr = i + 1;
-        data["item_number_" + ctr] = item.sku;
+        data["item_number_" + ctr] = item.id;
         data["item_name_" + ctr] = item.name;
         data["quantity_" + ctr] = item.quantity;
         data["amount_" + ctr] = item.price.toFixed(2);
@@ -206,7 +206,7 @@ shoppingCart.prototype.checkoutGoogle = function (parms, clearCart) {
     for (var i = 0; i < this.items.length; i++) {
         var item = this.items[i];
         var ctr = i + 1;
-        data["item_name_" + ctr] = item.sku;
+        data["item_name_" + ctr] = item.id;
         data["item_description_" + ctr] = item.name;
         data["item_price_" + ctr] = item.price.toFixed(2);
         data["item_quantity_" + ctr] = item.quantity;

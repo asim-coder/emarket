@@ -4,27 +4,37 @@
   The FriendsCtrl pulls data from the Friends service (service.js)
   The Friends service returns an array of friend data
 -->
-<ion-view title="{{item.name}}">
+<ion-view title="{{product.name}}">
   <ion-content has-header="true" padding="true">
   	<div class="list">
-	  	<i class = "item"> Name : {{item.name}}</i>	
-	  	<i class = "item"><img src="img/{{item.pic}}" alt=""></i>
-	  	<i class = "item">Price : {{item.price}}</i>
+	  	<i class = "item"> Name : {{product.name}}</i>	
+	  	<i class = "item"><img src="img/{{product.pic}}" alt=""></i>
+	  	<i class = "item">Price : {{product.price}}</i>
 	  	<i class = "item ">Quantity :  {{qty}} 
-	  		<i class = "ion-ios7-minus-empty item-detail" ng-click="qty = qty - 1" ng-show = "qty>1"></i>
-	  		<i class = "ion-ios7-plus-empty item-detail" ng-click="qty = qty + 1" ng-init="qty=1"></i>
+        <button 
+            class="button button-assertive text-right item-detail" type="button" 
+            ng-disabled="qty <= 1"
+            ng-click="qty = qty - 1" >
+            <i class = "ion-ios7-minus-empty item-detail"></i>
+        </button>
+        <button 
+            class="button button-balanced item-detail" type="button"
+            ng-disabled="qty > 1000"
+            ng-click="qty = qty + 1">
+            <i class = "ion-ios7-plus-empty item-detail" ng-init="qty=1"></i>
+        </button>
 	  	</i>
   	</div>
-  	<button class="button button-block button-positive" ng-show = "carted == 0" ng-click = "carted = 1" ng-init = "carted = 0">
+  	<button class="button button-block button-positive" ng-click="cart.addItem(product.id, product.name, product.price, qty)">
   	  Add this item to cart {{carted}}
   	</button>
-  	<button class="button button-block button-assertive"  ng-show = "carted == 1" ng-click = "carted = 0">
+  	<button class="button button-block button-assertive"  ng-disabled="cart.getTotalCount(product.id) < 1" ng-click="cart.addItem(product.id, product.name, product.price, -1000)">
   	  Remove this item from cart
   	</button>
-  	<a class="button button-block button-dark" ng-show = "carted == 1" href = "#/tab/cart">
+  	<a class="button button-block button-dark" ng-disabled="cart.getTotalCount(product.id) < 1" href = "#/tab/cart">
   	  Goto cart and checkout
   	</a>
-  	<a class="button button-block button-stable" ng-show = "carted == 1" href = "#/tab/dash">
+  	<a class="button button-block button-stable" href = "#/tab/dash">
   	  Continue Shopping
   	</a>
   </ion-content>
