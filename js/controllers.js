@@ -12,12 +12,14 @@ angular.module('starter.controllers', [])
   $scope.orderProp = "name";
   $scope.store = Emarket.store;
   $scope.cart = Emarket.cart;
+  $scope.nci = $scope.cart.getTotalCount();
 })
 
 .controller('CartCtrl', function($scope, Emarket) {
 //  $scope.items = Emarket.all();
   $scope.store = Emarket.store;
   $scope.cart = Emarket.cart;
+  $scope.nci = $scope.cart.getTotalCount();
 })
 
 .controller('ItemDetailCtrl', function($scope, $stateParams, Emarket) {

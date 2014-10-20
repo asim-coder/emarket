@@ -3,7 +3,7 @@
     <div class="button-bar">
     <a class="button button-icon icon ion-ios7-heart-outline cart-bar"> Wishlist</a>
     <a class="button button-icon icon ion-information-circled cart-bar"> Notifications</a>
-    <a class="button button-icon icon ion-ios7-cart-outline cart-bar"> My Cart</a>
+    <a class="button button-icon icon ion-ios7-cart-outline cart-bar" href = "#/tab/cart"> My Cart <span class="badge badge-assertive">{{cart.getTotalCount()}}</span></a>
     </div>
     <div class="list list-inset">
       <label class="item item-input">
@@ -30,13 +30,13 @@
     <div class="list">
       <ion-list>
         <ion-item ng-repeat="product in products | filter:query | orderBy:orderProp" type="item-text-wrap" class="item item-thumbnail-left item-button-right" href="#/tab/item/{{product.id}}">
-          <img ng-src="img/{{item.pic}}">
+          <img ng-src="img/{{product.pic}}">
           <h1>{{product.name}}</h1>
+          <a href="" ng-click="cart.addItem(product.id, product.name, product.price, 1)" class = "item-detail item marginated positive">
+              Add to cart
+          </a>
           <p>{{product.desc}}</p>
           <h2> {{product.price | currency:"&#8377;"}}</h2>
-          <a href="" ng-click="cart.addItem(product.id, product.name, product.price, 1)">
-              add to cart
-          </a>
           <!-- <button class="button button-stable add-to-cart" ng-class = "checkclass" ng-click = "checkclass = 'balanced'">
             <i class="icon ion-ios7-plus">Quick Buy</i>
           </button> -->
