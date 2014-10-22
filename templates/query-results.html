@@ -1,0 +1,47 @@
+<ion-view title="e - Market">
+  <ion-content class="padding">
+    <div class="button-bar">
+    <a class="button button-icon icon ion-ios7-heart-outline cart-bar"> Wishlist</a>
+    <a class="button button-icon icon ion-information-circled cart-bar"> Notifications</a>
+    <a class="button button-icon icon ion-ios7-cart-outline cart-bar" href = "#/tab/cart"> My Cart <span class="badge badge-assertive">{{cart.getTotalCount()}}</span></a>
+    </div>
+    <div class="list list-inset">
+      <label class="item item-input">
+        <i class="icon ion-search placeholder-icon"></i>
+        <input type="text" placeholder="Search for grossary, Bakery, Crockery etc" ng-model="query">
+      </label>
+      </div>
+      <button class="button button-royal button-full" href="#/tab/dash/{{query}}">Search</button>
+      <!-- <p ng-class="balanced" ng-click = "balanced = 'balanced'">Full Name :</p> -->
+    <div class="button-bar">
+      <a class="button button-positive margined">Bakery</a>
+      <a class="button button-calm margined">Grocery</a>
+      <a class="button button-energized margined">Crockery</a>
+      <a class="button button-balanced margined">Hot Deals</a>
+        <select ng-model="orderProp" class="button button-assertive margined">
+          <option value="name">Popular</option>
+          <option value="age">Newest</option>
+        </select>
+    </div><br><!-- {{items[0].name}}{{abc}} -->
+    <a class="button button-block button-dark" href="#/tab/cart" title="go to shopping cart" ng-hide="cart.getTotalCount() < 1">
+        <i class="icon-shopping-cart" />Goto Cart and Checkout <br>
+        <b>{{cart.getTotalCount()}}</b> items, <b>{{cart.getTotalPrice() | currency : "&#8377;"}}</b>
+    </a>
+    <div class="list">
+      <ion-list>
+        <ion-item ng-repeat="product in products | filter:query | orderBy:orderProp" type="item-text-wrap" class="item item-thumbnail-left" href="#/tab/item/{{product.id}}">
+          <img ng-src="img/{{product.pic}}">
+          <h1>{{product.name}}</h1>
+          <a href="" ng-click="cart.addItem(product.id, product.name, product.price, 1)" class = "item marginated">
+              Add to cart
+          </a>
+          <p>{{product.desc}}</p>
+          <h2> {{product.price | currency:"&#8377;"}}</h2>
+          <!-- <button class="button button-stable add-to-cart" ng-class = "checkclass" ng-click = "checkclass = 'balanced'">
+            <i class="icon ion-ios7-plus">Quick Buy</i>
+          </button> -->
+        </ion-item>
+      </ion-list>
+    </div>
+  </ion-content>
+</ion-view>

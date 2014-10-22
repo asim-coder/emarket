@@ -48,21 +48,41 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
       }
     })
 
-    .state('tab.friends', {
-      url: '/friends',
+    .state('tab.results', {
+      url: '/dash/:query',
       views: {
-        'tab-friends': {
-          templateUrl: 'templates/tab-friends.html',
-          controller: 'FriendsCtrl'
+        'tab-dash': {
+          templateUrl: 'templates/query-results.html',
+          controller: 'QueryResultsCtrl'
         }
       }
     })
-    .state('tab.friend-detail', {
-      url: '/friend/:friendId',
+
+    .state('tab.item-detail', {
+      url: '/item/:itemId',
       views: {
-        'tab-friends': {
-          templateUrl: 'templates/friend-detail.html',
-          controller: 'FriendDetailCtrl'
+        'tab-dash': {
+          templateUrl: 'templates/item-detail.html',
+          controller: 'ItemDetailCtrl'
+        }
+      }
+    })
+
+    .state('tab.cart', {
+      url: '/cart',
+      views: {
+        'tab-cart': {
+          templateUrl: 'templates/tab-cart.html',
+          controller: 'CartCtrl'
+        }
+      }
+    })
+    .state('tab.cart-detail', {
+      url: '/cart/:itemId',
+      views: {
+        'tab-cart': {
+          templateUrl: 'templates/cart-detail.html',
+          controller: 'CartDetailCtrl'
         }
       }
     })
@@ -70,9 +90,9 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
     .state('tab.home', {
       url: '/home',
       views: {
-        'registration': {
-          templateUrl: 'templates/tab-friends.html',
-          controller: 'FriendsCtrl'
+        'tab-account': {
+          templateUrl: 'templates/tab-account.html',
+          controller: 'CartCtrl'
         }
       }
     })
