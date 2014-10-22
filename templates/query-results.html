@@ -29,10 +29,10 @@
     </a>
     <div class="list">
       <ion-list>
-        <ion-item ng-repeat="product in products | filter:query | orderBy:orderProp" type="item-text-wrap" class="item item-thumbnail-left item-button-right" href="#/tab/item/{{product.id}}">
+        <ion-item ng-repeat="product in products | filter:query | orderBy:orderProp" type="item-text-wrap" class="item item-thumbnail-left" href="#/tab/item/{{product.id}}">
           <img ng-src="img/{{product.pic}}">
           <h1>{{product.name}}</h1>
-          <a href="" ng-click="cart.addItem(product.id, product.name, product.price, 1)" class = "item-detail item marginated positive">
+          <a href="" ng-click="cart.addItem(product.id, product.name, product.price, 1)" class = "item marginated">
               Add to cart
           </a>
           <p>{{product.desc}}</p>

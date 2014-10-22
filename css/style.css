@@ -13,19 +13,21 @@
 	margin-right: -40px;
 	margin-top: 20px;
 }
-
+/* 
 .item-detail {
-	margin-right: 20px;
-	float: right;
+  margin-right: 20px;
+  float: right;
 }
-
-.floated-right {
+ */
+/* .floated-right {
   float: left;
   margin: 10px;
-}
+} */
 
 .marginated {
   margin-top: -40px;
+  float: right;
+  margin-right: -30px;
 }
 
 /* Bootstrap Table */
