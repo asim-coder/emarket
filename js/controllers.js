@@ -3,7 +3,7 @@ angular.module('starter.controllers', [])
 .controller('DashCtrl', function($scope, $http) {
 	$scope.search = function(query){
     $http.defaults.headers.post["Content-Type"] = "application/x-www-form-urlencoded";
-    $http.post('http://localhost/emarketserver/index.php', "name=" + query).
+    $http.post('http://localhost/emarketserver/db.php', "query=" + query).
       success(function(data, status, headers, config) {
         alert("ok" + status + data);
       }).
